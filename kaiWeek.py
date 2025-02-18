@@ -7,7 +7,7 @@ import requests
 
 URL = "https://portal.nau.edu.ua/schedule/group?id=361"
 subgroup = 2    # 2 або 1
-parity = 2      # 2 або 1
+parity = 1      # 2 або 1
 
 
 UKRAINIAN_DAYS = {
