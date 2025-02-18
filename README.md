@@ -1,3 +1,3 @@
 # kaiWeek
 консольний прикол для моніторингу змін розкладу та його відображення
-![Alt text](./images/screenshot.png)
+![Alt text](./Screenshot_20250218_210921.png)
