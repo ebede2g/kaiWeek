@@ -1,4 +1,4 @@
-import from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 import json
 import datetime
 import os
