@@ -115,7 +115,7 @@ if __name__ == "__main__":
         try:
             offset = int(sys.argv[1])
             target_date = today + datetime.timedelta(days=offset)
-            week_num = 2 if (target_date.isocalendar()[1] % 2 == 0) else 1
+            week_num = parity if (target_date.isocalendar()[1] % 2 == 0) else oppositparity
             day_name = UKRAINIAN_DAYS[target_date.strftime('%A').lower()]
         except ValueError:
             print("Невірний формат дня. Використовуйте ціле число для зсуву.")
