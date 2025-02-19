@@ -6,7 +6,9 @@
 Instalation:
 
 Переконайсь шо маєш гіт
-git --version
+
+`git --version`
+
 якшо нє - то скачуй
 
 
@@ -20,6 +22,11 @@ Linux:
 
 `source venv/bin/activate && pip install -r requirements.txt`
 
+----
+Запуск 
+
+`python3 kaiWeek.py`
+
 
 Windows:
 Якщо не маєш гіт'а, то варто втсановити
@@ -30,6 +37,12 @@ Windows:
 
 `cd kaiWeek`
 
+`py -m pip install -r requirements.txt`
+
+----
+Запуск 
+
+`py kaiWeek.py`
 
 
 Після чого закрий та наново відкрий cmd
