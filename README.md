@@ -3,11 +3,38 @@
 
 Див. 'kaiWeek.py' для налаштування групи та підгрупи. 
 
-`git clone git@github.com:ebede2g/kaiWeek.git`
+Instalation:
+
+Переконайсь шо маєш гіт
+git --version
+якшо нє - то скачуй
+
+
+Linux:
+
+`git clone https://github.com/ebede2g/kaiWeek.git`
+
+`cd kaiWeek`
 
 `python3 -m venv venv`
 
 `source venv/bin/activate && pip install -r requirements.txt`
+
+
+Windows:
+Якщо не маєш гіт'а, то варто втсановити
+
+`winget install --id Git.Git -e --source winget`
+
+`git clone https://github.com/ebede2g/kaiWeek.git`
+
+`cd kaiWeek`
+
+
+
+Після чого закрий та наново відкрий cmd
+
+
 
 ![Alt text](./Screenshot_20250218_210921.png)
 
