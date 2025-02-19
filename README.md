@@ -7,7 +7,7 @@
 
 `python3 -m venv venv`
 
-`source venv/bin/activate && pip install -r requirements.txt > /dev/null`
+`source venv/bin/activate && pip install -r requirements.txt`
 
 ![Alt text](./Screenshot_20250218_210921.png)
 
