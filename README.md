@@ -5,14 +5,8 @@
 
 ## Instalation:
 
-Переконайсь шо маєш гіт
 
-`git --version`
-
-якшо нє - то скачуй
-
-
-Linux:
+#Linux:
 
 `git clone https://github.com/ebede2g/kaiWeek.git`
 
@@ -22,16 +16,20 @@ Linux:
 
 `source venv/bin/activate && pip install -r requirements.txt`
 
-----
-Запуск 
+
+#Запуск 
 
 `python3 kaiWeek.py`
 
+----
+#Windows:
+Переконайсь шо маєш гіт Якщо не маєш гіт'а, то варто втсановити
 
-Windows:
-Якщо не маєш гіт'а, то варто втсановити
+`git --version`
 
 `winget install --id Git.Git -e --source winget`
+
+Після чого закрий та наново відкрий cmd
 
 `git clone https://github.com/ebede2g/kaiWeek.git`
 
@@ -39,13 +37,13 @@ Windows:
 
 `py -m pip install -r requirements.txt`
 
-----
+
 Запуск 
 
 `py kaiWeek.py`
 
+----
 
-Після чого закрий та наново відкрий cmd
 
 
 
