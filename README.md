@@ -3,10 +3,10 @@
 
 Див. 'kaiWeek.py' для налаштування групи та підгрупи. 
 
-## Instalation:
+# Instalation:
 
 
-# Linux:
+## Linux:
 
 `git clone https://github.com/ebede2g/kaiWeek.git`
 
@@ -22,7 +22,7 @@
 `python3 kaiWeek.py`
 
 
-# Windows:
+## Windows:
 Переконайсь шо маєш гіт Якщо не маєш гіт'а, то варто втсановити
 
 `git --version`
