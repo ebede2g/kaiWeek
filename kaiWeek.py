@@ -9,7 +9,6 @@ URL = "https://portal.nau.edu.ua/schedule/group?id=361"
 subgroup = 2    # 2 або 1
 parity = 1      # 2 або 1
 
-
 UKRAINIAN_DAYS = {
     "monday": "понеділок",
     "tuesday": "вівторок",
@@ -83,9 +82,7 @@ def parse_schedule(html):
                     schedule_data[week_number][day].append({
                         'time': time_slot,
                         'subject': subject,
-                        'subgroup': subgroup,
-                        #'teacher': teacher,
-                        #'room': room
+                        'subgroup': subgroup
                     })
     return schedule_data
 
@@ -97,7 +94,7 @@ def get_schedule(schedule, week, day, subgroup):
     day_schedule = [item for item in schedule[week][day] if item['subgroup'] in [subgroup, "Обидві"]]
     return day_schedule if day_schedule else "Занять немає"
 
-oppositparity = 2 if parity==1 else 1
+oppositparity = 2 if parity == 1 else 1
 
 if __name__ == "__main__":
     html = fetch_schedule()
@@ -115,8 +112,23 @@ if __name__ == "__main__":
         try:
             offset = int(sys.argv[1])
             target_date = today + datetime.timedelta(days=offset)
-            week_num = parity if (target_date.isocalendar()[1] % 2 == 0) else oppositparity
             day_name = UKRAINIAN_DAYS[target_date.strftime('%A').lower()]
+            
+            # Обчислення днів до кінця поточного тижня, включаючи сьогодні
+            days_to_end_of_week = 6 - today.weekday()
+            
+            # Якщо зміщення відбувається в межах цього тижня
+            if offset <= days_to_end_of_week:
+                week_num = parity if (today.isocalendar()[1] % 2 == 0) else oppositparity
+            else:
+                # Обчислення залишкових днів після закінчення цього тижня
+                remaining_days = offset - days_to_end_of_week - 1
+                week_diff = (remaining_days // 7) + 1  # +1 для переходу на наступний тиждень
+                
+                # Зміна парності тижня, якщо перехід на непарну кількість тижнів
+                if week_diff % 2 != 0:
+                    week_num = oppositparity if week_num == parity else parity
+                    
         except ValueError:
             print("Невірний формат дня. Використовуйте ціле число для зсуву.")
             sys.exit(1)
