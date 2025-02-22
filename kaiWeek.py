@@ -5,7 +5,8 @@ import os
 import sys
 import requests
 
-URL = "https://portal.nau.edu.ua/schedule/group?id=361"
+URL = "https://portal.nau.edu.ua/schedule/group?id=361" # Обери свою групу в на сайті КАІ - https://portal.nau.edu.ua/schedule/group/list
+
 subgroup = 2    # 2 або 1
 parity = 1      # 2 або 1
 
@@ -38,7 +39,7 @@ def compare_schedules():
                 if f1.read() != f2.read():
                     print("\033[91mРозклад змінився.\033[0m")
                     print(f"Старий: file://{os.path.abspath(OLD_FILE)}")
-                    print(f"Новий: file://{os.path.abspath(NEW_FILE)}")
+                    print(f"Новий: {URL}")
         os.replace(NEW_FILE, OLD_FILE)
 
 def parse_schedule(html):
@@ -137,3 +138,4 @@ if __name__ == "__main__":
     
     result = get_schedule(schedule, week_num, day_name, subgroup)
     print(json.dumps(result, indent=2, ensure_ascii=False))
+
