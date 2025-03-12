@@ -29,8 +29,13 @@ def fetch_schedule():
         response.raise_for_status()
         return response.text
     except requests.RequestException:
-        print(f"\033[91mСайт КАІ приліг :(( Не вдалося отримати розклад.\033[0m\nПереконайся і сам: {URL}")
-        sys.exit(1)
+        print("\033[91mСайт КАІ приліг :((. Інформацію беру із локального старого розкалду...\033[0m")
+        if os.path.exists(OLD_FILE):
+            with open(OLD_FILE, "r", encoding="utf-8") as f:
+                return f.read()
+        else:
+            print("\033[91mСтарий розклад теж не знайдено.\033[0m")
+            sys.exit(1)
     
 
 def save_schedule(html, filename):
