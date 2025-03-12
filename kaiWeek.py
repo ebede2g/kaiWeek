@@ -24,9 +24,14 @@ OLD_FILE = "rozklad_old.html"
 NEW_FILE = "rozklad_new.html"
 
 def fetch_schedule():
-    response = requests.get(URL)
-    response.raise_for_status()
-    return response.text
+    try:
+        response = requests.get(URL, timeout=5)
+        response.raise_for_status()
+        return response.text
+    except requests.RequestException:
+        print(f"\033[91mСайт КАІ приліг :(( Не вдалося отримати розклад.\033[0m\nПереконайся і сам: {URL}")
+        sys.exit(1)
+    
 
 def save_schedule(html, filename):
     with open(filename, "w", encoding="utf-8") as f:
